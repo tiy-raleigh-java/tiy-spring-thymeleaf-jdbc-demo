@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/styles.css" th:href="${'/styles.css'}" />
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>List of my People!</h1>
+
+    <p><strong>Number of people:</strong> <span th:text="${persons.size()}">3</span></p>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        <tr th:each="person : ${persons}">
+            <td th:text="${person.id}">1</td>
+            <td th:text="${person.firstName}">Fred</td>
+            <td th:text="${person.lastName}">Flintstone</td>
+        </tr>
+        <tr th:remove="all">
+            <td>2</td>
+            <td>Wilma</td>
+            <td>Flintstone</td>
+        </tr>
+        <tr th:remove="all">
+            <td>3</td>
+            <td>Bam Bam</td>
+            <td>Flintstone</td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
